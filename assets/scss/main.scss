@@ -1,0 +1,14 @@
+// scssファイルを集約する
+
+// config
+@import "config/reset";
+@import "config/colors";
+@import "config/base";
+@import "config/fonts";
+
+// blocks
+@import "block/icon";
+@import "block/header";
+@import "block/footer";
+@import "block/index";
+@import "block/about";

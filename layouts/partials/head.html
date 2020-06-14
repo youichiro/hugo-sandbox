@@ -1,0 +1,12 @@
+<meta charset="utf-8">
+<title>{{ .Title }}</title>
+
+<!-- css -->
+{{ $style := resources.Get "scss/main.scss" | toCSS | minify }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+
+<!-- favicon -->
+<link rel="shortcut icon" href="{{ .Site.BaseURL }}/images/favicon.jpeg" />
+
+<!-- fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
