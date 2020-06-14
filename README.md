@@ -9,7 +9,7 @@ cd hugo-sandbox
 hugo server
 ```
 
-![hoge](https://user-images.githubusercontent.com/20487308/84586836-94cae700-ae55-11ea-914d-84b90389425b.png)
+![hoge](https://user-images.githubusercontent.com/20487308/84595709-56a0e800-ae94-11ea-9c32-1344f7759ad9.png)
 
 
 ## 構成とコメント
