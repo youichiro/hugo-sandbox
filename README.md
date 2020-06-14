@@ -1,6 +1,6 @@
-## hugo-sandbox
+# hugo-sandbox
 
-### 実行
+## 実行
 
 ```bash
 git clone https://github.com/youichiro/hugo-sandbox.git
@@ -11,7 +11,7 @@ hugo server
 ![hoge](https://user-images.githubusercontent.com/20487308/84586836-94cae700-ae55-11ea-914d-84b90389425b.png)
 
 
-### 構成とコメント
+## 構成とコメント
 
 ```
 archetypes/
@@ -50,14 +50,14 @@ config.toml                   // サイトの全般的な設定, .Site変数で�
 ```
 
 
-### トップページの作成
+## トップページの作成
 
 トップページは`layouts/index.html`に書く<br>
 `{{ define "main" }}` `{{ end }}` で囲むことで `layouts/_default/baseof.html` のベーステンプレートに当てはめる<br>
 htmlを別ファイルで分割したいときは `layouts/partials/xxx.html`にそのhtmlを作成し、`{{- partial "xxx" }}` で読み込む<br>
 
 
-### 固定ページの作成
+## 固定ページの作成
 
 accessページを新たに作成したい場合、まず `hugo new access/_index.html`を実行する<br>
 `content/access/_index.html`が作成されるが、これは特に編集しない<br>
@@ -67,6 +67,6 @@ accessページを新たに作成したい場合、まず `hugo new access/_inde
 `{{ define "main" }}` `{{ end }}` で囲むことを忘れないように<br>
 
 
-### リンクを書く
+## リンクを書く
 `<a href="{{ .Site.BaseURL }}/about">about</a>` で aboutページにリンクする<br>
 `.Site`は`config.toml`に定義された変数を参照することができ、`.Site.BaseURL`でその値を取得している<br>
