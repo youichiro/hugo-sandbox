@@ -12,38 +12,38 @@ hugo server
 
 ```
 archetypes/
-    default.md            // hugo new したときの記事の雛形
+    default.md                // hugo new したときの記事の雛形
 assets/
     scss/
-        block/            // 各ブロックのscss
+        block/                // 各ブロックのscss
             ...
         config/
-            _base.scss    // 全体に適用されるべきスタイルを書く
-            _colors.scss  // フォントカラーを定義する
-            _fonts.scss   // フォントに関するクラスを書く
-            _reset.scss   // ブラウザのデフォルトスタイルを打ち消す
-        main.scss         // scssを集約する, headでこれを指定している
+            _base.scss        // 全体に適用されるべきスタイルを書く
+            _colors.scss      // フォントカラーを定義する
+            _fonts.scss       // フォントに関するクラスを書く
+            _reset.scss       // ブラウザのデフォルトスタイルを打ち消す
+        main.scss             // scssを集約する, headでこれを指定している
 content/
-    about/                // aboutセクション
-        _index.html       // セクションテンプレートが使用される
+    about/                    // aboutセクション
+        _index.html           // セクションテンプレートが使用される
 layouts/
     _default/
-        baseof.html       // HTMLの共通部分, ベーステンプレート
+        baseof.html           // HTMLの共通部分, ベーステンプレート
         index.html
         list/html
     partials/
-        footer.html       // フッターを書く
-        head.html         // headタグの中身を書く
-        header.html       // ヘッダーを書く
-        icon.html         // partialにしておくと使い回せる
+        footer.html           // フッターを書く
+        head.html             // headタグの中身を書く
+        header.html           // ヘッダーを書く
+        icon.html             // partialにしておくと使い回せる
     section/
-        about.html        // aboutのセクションテンプレート
-    index.html            // ホームテンプレート, トップページそのものとする
+        about.html            // aboutのセクションテンプレート
+    index.html                // ホームテンプレート, トップページそのものとする
 static/
-    images/               // 使用する画像をここに配置する
+    images/                   // 使用する画像をここに配置する
         favicon.jpeg
         icon.jpg
-config.toml               // サイトの全般的な設定, .Site変数で参照できる
+config.toml                   // サイトの全般的な設定, .Site変数で参照できる
 ```
 
 
