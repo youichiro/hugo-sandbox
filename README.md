@@ -1,4 +1,5 @@
 # hugo-sandbox
+[Hugo](https://gohugo.io/)でサイトを作るときのテンプレ的なもの
 
 ## 実行
 
