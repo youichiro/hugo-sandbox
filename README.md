@@ -51,7 +51,7 @@ config.toml                   // サイトの全般的な設定, .Site変数で�
 ```
 
 
-## トップページの編集
+## トップページを編集する
 
 - トップページは`layouts/index.html`に書く
 - `{{ define "main" }}` `{{ end }}` で囲むことで `layouts/_default/baseof.html` のベーステンプレートに当てはめる
@@ -68,7 +68,7 @@ config.toml                   // サイトの全般的な設定, .Site変数で�
 {{- partial "xxx" }}
 ```
 
-## 固定ページの作成
+## 固定ページを新規作成する
 
 例えばアクセスページを新たに作成したい場合
 
