@@ -51,11 +51,11 @@ config.toml                   // サイトの全般的な設定, .Site変数で�
 ```
 
 
-## トップページの作成
+## トップページの編集
 
-- トップページは`layouts/index.html`に書く<br>
+- トップページは`layouts/index.html`に書く
 - `{{ define "main" }}` `{{ end }}` で囲むことで `layouts/_default/baseof.html` のベーステンプレートに当てはめる
-- htmlを部分的に別ファイルで分割したいときは `layouts/partials/xxx.html`にそのhtmlを作成し、`{{- partial "xxx" }}` で読み込む
+- htmlを部分的に別ファイルで分割したいときは `layouts/partials/`に新たにhtmlファイルを作成し、`{{- partial "xxx" }}` でそのパーシャルを読み込む
 
 ```html
 {{ define "main" }}
@@ -107,3 +107,9 @@ title = "hugo-sandbox"
 ```html
 <p>{{ .Site.Params.Twitter }}</p>
 ```
+
+## ビルドする
+
+- `hugo`コマンドを実行すると、`public`ディレクトリにサイトに必要なファイルを出力してくれる
+- 例えば`public/index.html`を見ると、パーシャルやブロックの中身が全部統合されていることがわかる
+- このディレクトリをサーバに配置することでサイトを公開することができる
