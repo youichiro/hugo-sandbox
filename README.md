@@ -53,9 +53,9 @@ config.toml                   // サイトの全般的な設定, .Site変数で�
 
 ## トップページの作成
 
-トップページは`layouts/index.html`に書く<br>
-`{{ define "main" }}` `{{ end }}` で囲むことで `layouts/_default/baseof.html` のベーステンプレートに当てはめる<br>
-htmlを別ファイルで分割したいときは `layouts/partials/xxx.html`にそのhtmlを作成し、`{{- partial "xxx" }}` で読み込む<br>
+- トップページは`layouts/index.html`に書く<br>
+- `{{ define "main" }}` `{{ end }}` で囲むことで `layouts/_default/baseof.html` のベーステンプレートに当てはめる
+- htmlを部分的に別ファイルで分割したいときは `layouts/partials/xxx.html`にそのhtmlを作成し、`{{- partial "xxx" }}` で読み込む
 
 ```html
 {{ define "main" }}
@@ -70,21 +70,26 @@ htmlを別ファイルで分割したいときは `layouts/partials/xxx.html`に
 
 ## 固定ページの作成
 
-accessページを新たに作成したい場合、まず `hugo new access/_index.html`を実行する<br>
-`content/access/_index.html`が作成されるが、これは特に編集しない<br>
-`layouts/secsion/access.html`を作成する<br>
-これがaccessページのセクションテンプレートとなる<br>
-ここにコンテンツを書く<br>
-`{{ define "main" }}` `{{ end }}` で囲むことを忘れないように<br>
+例えばアクセスページを新たに作成したい場合
+
+- `hugo new access/_index.html`を実行する
+  - `content/access/_index.html`が生成される
+  - `draft: false`に変更しておく
+- `layouts/secsion/access.html`を作成する
+  - これがアクセスページのセクションテンプレートとなる
+  - このファイルでアクセスページを制作していく
+  - `{{ define "main" }}` `{{ end }}` で囲むことを忘れないように
 
 
 ## リンクを書く
-`<a href="{{ .Site.BaseURL }}/about">about</a>` で aboutページにリンクする<br>
-`.Site`は`config.toml`に定義された変数を参照することができ、`.Site.BaseURL`でその値を取得している<br>
+
+- `<a href="{{ .Site.BaseURL }}/about">about</a>`でAboutページへのリンクになる
+- `.Site`で`config.toml`に定義された変数を参照することができ、`.Site.BaseURL`でその値を取得している
 
 
 ## 変数を定義する
-独自の変数を定義したいときは`config.toml`に`params`セクションを用意し、その下に変数を定義する<br>
+
+- 独自の変数を定義したいときは`config.toml`に`params`セクションを用意し、その下に変数を定義する
 
 変数の定義：
 
