@@ -1,3 +1,6 @@
 baseURL = "http://localhost:1313"
 languageCode = "ja"
 title = "hugo-sandbox"
+
+[params]
+  Twitter = "@cinnamon_416"
