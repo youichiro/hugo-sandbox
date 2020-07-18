@@ -25,6 +25,7 @@ assets/
             _base.scss        // 全体に適用されるべきスタイルを書く
             _colors.scss      // フォントカラーを定義する
             _fonts.scss       // フォントに関するクラスを書く
+            _mixins.scss      // mixinを定義する
             _reset.scss       // ブラウザのデフォルトスタイルを打ち消す
         main.scss             // scssを集約する, headでこれを指定している
 content/
