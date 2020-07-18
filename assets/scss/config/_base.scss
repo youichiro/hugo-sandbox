@@ -1,5 +1,11 @@
 // 全体に適用されるスタイルを書く
 
+html {
+  @include mq-down(md) {
+    font-size: 50%;
+  }
+}
+
 body {
   padding: 2rem;
   font-family: sans-serif;

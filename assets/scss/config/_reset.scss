@@ -4,7 +4,8 @@ html {
   font-size: 100%;
 }
 
-body {
+body,
+p {
   margin: 0;
 }
 
@@ -40,4 +41,16 @@ input[type="time"],
 textarea,
 select {
   outline: none;
+}
+
+img {
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+
+a {
+  background-color: transparent;
+  text-decoration: none;
+  color: inherit;
 }
