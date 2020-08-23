@@ -109,7 +109,7 @@ Aboutページを新たに作成したい場合
   - `hugo new news/_index.md`でセクションページのmdファイルを作成する
   - 記事のリストを表示したいので、リストテンプレートを使って表示する
   - `layouts/news/list.html`を作成する
-  - ```
+  - ```html
     <ul>
       {{ range .RegularPages }}
       <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
@@ -155,7 +155,7 @@ weightで並べる順番を指定している
 
 `.Site.Menus.main`で参照してメニューを作ることができる
 
-```
+```html
 <ul>
   {{ range .Site.Menus.main }}
     <li>
