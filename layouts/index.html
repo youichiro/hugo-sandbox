@@ -6,6 +6,12 @@
   <div class="content">
     <a href="{{ .Site.Params.GithubPage }}">source code</a>
   </div>
+  <div class="news-summary">
+    <p>新着のお知らせ</p>
+    <div class="news-list-summary-wrapper">
+      {{- partial "news_list_summary" . -}}
+    </div>
+  </div>
 </div>
 
 {{ end }}

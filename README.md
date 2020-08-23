@@ -63,8 +63,6 @@ config.toml                         // サイトの全般的な設定 .Site変�
 
 - トップページは`layouts/index.html`に書く
 - `{{ define "main" }}` `{{ end }}` で囲むことで `layouts/_default/baseof.html` のベーステンプレートに当てはめる
-- htmlを部分的に別ファイルで分割したいときは `layouts/partials/`に新たにhtmlファイルを作成する(パーシャルと呼ぶ)
-- `{{- partial "パーシャル名" }}` でそのパーシャルの内容を表示することができる
 
 ```html
 {{ define "main" }}
@@ -72,9 +70,14 @@ config.toml                         // サイトの全般的な設定 .Site変�
 {{ end }}
 ```
 
+## パーシャルを作成・表示する
+
+- htmlを部分的に別ファイルで分割したいときは `layouts/partials/`に新たにhtmlファイルを作成する(パーシャルと呼ぶ)
+- `{{- partial "パーシャル名" . -}}` でそのパーシャルの内容を表示することができる
+
 ```html
 <!-- ここにパーシャルを当てはめる -->
-{{- partial "xxx" }}
+{{- partial "xxx" . -}}
 ```
 
 ## 固定ページを作成する
