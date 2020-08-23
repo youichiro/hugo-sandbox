@@ -1,13 +1,15 @@
 # hugo-sandbox
 [Hugo](https://gohugo.io/)でサイトを作るときのテンプレ的なもの
 
-## 実行
+## 実行手順
 
 ```bash
 git clone https://github.com/youichiro/hugo-sandbox.git
 cd hugo-sandbox
 hugo server
 ```
+
+## トップページスクショ
 
 ![hoge](https://user-images.githubusercontent.com/20487308/90981347-67a85c80-e59b-11ea-915f-12b1ba571bf5.png)
 
@@ -29,15 +31,15 @@ assets/
             _reset.scss             // ブラウザのデフォルトスタイルを打ち消す
         main.scss                   // scssを集約する headでこれを指定している
 content/
-    about/                          // aboutセクション
+    about/
         _index.md                   // セクションテンプレート(layouts/section/about.html)を使用
-    news/                           // newsセクション
+    news/
         _index.md                   // リストテンプレート(layouts/news/list.html)を使用
         20200823_first_news.md      // シングルページテンプレート(layouts/news/single.html)を使用
         20200823_second_news.md     // 〃
 layouts/
     _default/
-        baseof.html                 // ベーステンプレート 全ページ共通のHTMLの骨組み
+        baseof.html                 // ベーステンプレート 全ページ共通のHTML構造
     partials/
         footer.html                 // フッターを書く
         head.html                   // headタグの中身を書く
@@ -50,7 +52,7 @@ layouts/
         list.html                   // newsセクションのリストテンプレート
         single.html                 // newsセクションのシングルページテンプレート
 static/
-    images/                         // 使用する画像をここに配置する
+    images/                         // 使用する画像はここに配置する
         favicon.jpeg
         icon.jpg
 config.toml                         // サイトの全般的な設定 .Site変数で参照できる
@@ -61,7 +63,8 @@ config.toml                         // サイトの全般的な設定 .Site変�
 
 - トップページは`layouts/index.html`に書く
 - `{{ define "main" }}` `{{ end }}` で囲むことで `layouts/_default/baseof.html` のベーステンプレートに当てはめる
-- htmlを部分的に別ファイルで分割したいときは `layouts/partials/`に新たにhtmlファイルを作成し、`{{- partial "xxx" }}` でそのパーシャルを読み込む
+- htmlを部分的に別ファイルで分割したいときは `layouts/partials/`に新たにhtmlファイルを作成する(パーシャルと呼ぶ)
+- `{{- partial "パーシャル名" }}` でそのパーシャルの内容を表示することができる
 
 ```html
 {{ define "main" }}
@@ -83,15 +86,16 @@ Aboutページを新たに作成したい場合
   - 表示させたい文章などのコンテンツはこのファイルに書く
 - `layouts/secsion/about.html`を作成する
   - これがAboutページのセクションテンプレートとなる
+  - `http://localhost:1313/about`が表示できるようになる
   - このファイルでAboutページの構成を作成する
-  - `{{ define "main" }}` `{{ end }}` で囲むことを忘れないように
+  - `{{ define "main" }}` `{{ end }}` で囲むことで共通のHTML構造である`layouts/_default/baseof.html`のmainブロックにはめ込んでいる
   - `{{ .Title }}`でmdファイルのtitleを参照できる
   - `{{ .Content }}`でmdファイルの中身を参照できる
 
 
 ## コンテンツ一覧ページを作成する
 
-ニュース記事のように随時コンテンツを追加・更新するような場合、それらを自動で一覧表示するページが必要になる
+ニュース記事のように逐次的にコンテンツを追加・更新するような場合、それらを自動で一覧表示するページが必要になる
 
 ニュース記事ページとニュース一覧ページを表示する手順：
 
