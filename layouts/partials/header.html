@@ -1,8 +1,14 @@
 <div id="header">
   <ul>
-    <li><a href="/">Home</a></li>
-    {{ range .Site.Sections.ByWeight }}
-      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    <li>
+      <a href="/">Home</a>
+    </li>
+    {{ range .Site.Sections }}
+      <li>
+        <a href="{{ .RelPermalink }}">
+          {{ .Title }}
+        </a>
+      </li>
     {{ end }}
   </ul>
 </div>

@@ -9,46 +9,51 @@ cd hugo-sandbox
 hugo server
 ```
 
-![hoge](https://user-images.githubusercontent.com/20487308/85228651-86656800-b41f-11ea-9044-a38c8ccf0498.png)
+![hoge](https://user-images.githubusercontent.com/20487308/90981347-67a85c80-e59b-11ea-915f-12b1ba571bf5.png)
 
 
 ## 構成とコメント
 
 ```
 archetypes/
-    default.md                // hugo new したときの記事の雛形
+    default.md                      // hugo new したときの記事の雛形
 assets/
     scss/
-        block/                // 各ブロックのscss
+        block/                      // 各ブロックのscss
             ...
         config/
-            _base.scss        // 全体に適用されるべきスタイルを書く
-            _colors.scss      // フォントカラーを定義する
-            _fonts.scss       // フォントに関するクラスを書く
-            _mixins.scss      // mixinを定義する
-            _reset.scss       // ブラウザのデフォルトスタイルを打ち消す
-        main.scss             // scssを集約する, headでこれを指定している
+            _base.scss              // 全体に適用されるべきスタイルを書く
+            _colors.scss            // フォントカラーを定義する
+            _fonts.scss             // フォントに関するクラスを書く
+            _mixins.scss            // mixinを定義する
+            _reset.scss             // ブラウザのデフォルトスタイルを打ち消す
+        main.scss                   // scssを集約する headでこれを指定している
 content/
-    about/                    // aboutセクション
-        _index.html           // セクションテンプレートが使用される
+    about/                          // aboutセクション
+        _index.md                   // セクションテンプレート(layouts/section/about.html)を使用
+    news/                           // newsセクション
+        _index.md                   // リストテンプレート(layouts/news/list.html)を使用
+        20200823_first_news.md      // シングルページテンプレート(layouts/news/single.html)を使用
+        20200823_second_news.md     // 〃
 layouts/
     _default/
-        baseof.html           // HTMLの共通部分, ベーステンプレート
-        index.html
-        list/html
+        baseof.html                 // ベーステンプレート 全ページ共通のHTMLの骨組み
     partials/
-        footer.html           // フッターを書く
-        head.html             // headタグの中身を書く
-        header.html           // ヘッダーを書く
-        icon.html             // partialにしておくと使い回せる
-    section/
-        about.html            // aboutのセクションテンプレート
-    index.html                // ホームテンプレート, トップページそのものとする
+        footer.html                 // フッターを書く
+        head.html                   // headタグの中身を書く
+        header.html                 // ヘッダーを書く
+        icon.html                   // アイコンを表示するパーツ
+    index.html                      // ホームページテンプレート トップページそのもの
+    section/                        // セクションテンプレートはこの中にセクション名のhtmlファイルを作成する
+        about.html                  // aboutセクションのセクションテンプレート
+    news/
+        list.html                   // newsセクションのリストテンプレート
+        single.html                 // newsセクションのシングルページテンプレート
 static/
-    images/                   // 使用する画像をここに配置する
+    images/                         // 使用する画像をここに配置する
         favicon.jpeg
         icon.jpg
-config.toml                   // サイトの全般的な設定, .Site変数で参照できる
+config.toml                         // サイトの全般的な設定 .Site変数で参照できる
 ```
 
 
@@ -71,20 +76,71 @@ config.toml                   // サイトの全般的な設定, .Site変数で�
 
 ## 固定ページを新規作成する
 
-例えばアクセスページを新たに作成したい場合
+Aboutページを新たに作成したい場合
 
-- `hugo new access/_index.html`を実行する
-  - `content/access/_index.html`が生成される
-  - `draft: false`に変更しておく
-- `layouts/secsion/access.html`を作成する
-  - これがアクセスページのセクションテンプレートとなる
-  - このファイルでアクセスページを制作していく
+- `hugo new about/_index.md`を実行する
+  - `content/about/_index.md`が生成される
+  - 表示させたい文章などのコンテンツはこのファイルに書く
+- `layouts/secsion/about.html`を作成する
+  - これがAboutページのセクションテンプレートとなる
+  - このファイルでAboutページの構成を作成する
   - `{{ define "main" }}` `{{ end }}` で囲むことを忘れないように
+  - `{{ .Title }}`でmdファイルのtitleを参照できる
+  - `{{ .Content }}`でmdファイルの中身を参照できる
 
 
-## リンクを書く
+## コンテンツ一覧ページを作成する
 
-- `<a href="/about">about</a>`でAboutページへのリンクになる
+ニュース記事のように随時コンテンツを追加・更新するような場合、それらを自動で一覧表示するページが必要になる
+
+ニュース記事ページとニュース一覧ページを表示する手順：
+
+- ニュース記事ページの作成
+  - `hugo new news/sample.md`で記事を書くmdファイルを作成する
+  - これはシングルページテンプレートを使って表示する
+  - `layouts/news`ディレクトリを作成し、更に`single.html`を作成する
+  - 固定ページと同様に`{{ .Title }}`や`{{ .Content }}`でmdファイルの内容を表示する
+  - `http://localhost:1313/news/sample`が表示できるようになる
+- ニュース一覧ページの作成
+  - `hugo new news/_index.md`でセクションページのmdファイルを作成する
+  - 記事のリストを表示したいので、リストテンプレートを使って表示する
+  - `layouts/news/list.html`を作成する
+  - ```
+    <ul>
+      {{ range .RegularPages }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    </ul>
+    ```
+    これで今開いているセクションに属するページの一覧を表示してくれる
+
+
+## リンクを貼る
+
+`<a href="/about">about</a>`でAboutページへのリンクを貼ることができる
+
+
+## 画像を表示する
+
+- `static/images`に画像ファイル(icon.jpg)を配置する
+- `<img class="icon" src="/images/icon.jpg">`でその画像を表示できる
+  - このsrcのパスはpublic内でのパスを指定している
+
+
+## セクションページ一覧を表示する
+
+ヘッダーにメニューとしてセクションページを一覧表示するような場合、セクションページを自動で取得できる
+
+```
+<ul>
+  {{ range .Site.Sections }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </li>
+  {{ end }}
+</ul>
+```
+
+セクションページのmdファイルの`weight`で並べる順番を指定することができる [参考](https://gohugo.io/templates/lists/#order-content)
 
 
 ## 変数を定義する
@@ -105,11 +161,17 @@ title = "hugo-sandbox"
 変数の参照：
 
 ```html
-<p>{{ .Site.Params.GithubPage }}</p>
+<a href="{{ .Site.Params.GithubPage }}">source code</p>
 ```
 
 ## ビルドする
 
-- `hugo`コマンドを実行すると、`public`ディレクトリにサイトに必要なファイルを出力してくれる
+- `hugo`コマンドを実行すると、`public`ディレクトリにサイト表示に必要なファイルを出力する
 - 例えば`public/index.html`を見ると、パーシャルやブロックの中身が全部統合されていることがわかる
 - このディレクトリをサーバに配置することでサイトを公開することができる
+
+
+
+## Hugo参考サイト
+
+- [まくまくHugo/Goノート](https://maku77.github.io/hugo/)
