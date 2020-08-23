@@ -219,3 +219,8 @@ html {
 
 - [まくまくHugo/Goノート](https://maku77.github.io/hugo/)
 - [Yuuniworks Notes](https://note.yuuniworks.com/study/hugo.html)
+
+
+## TODO
+
+- [ ] FontAwesomeを使う
