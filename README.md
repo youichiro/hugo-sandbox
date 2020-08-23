@@ -11,7 +11,7 @@ hugo server
 
 ## トップページスクショ
 
-![hoge](https://user-images.githubusercontent.com/20487308/90981347-67a85c80-e59b-11ea-915f-12b1ba571bf5.png)
+![hoge](https://user-images.githubusercontent.com/20487308/90983417-f4a5e280-e5a8-11ea-80ef-d7dde4b4c893.png)
 
 
 ## 構成とコメント
