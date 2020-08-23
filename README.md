@@ -45,6 +45,7 @@ layouts/
         head.html                   // headタグの中身を書く
         header.html                 // ヘッダーを書く
         icon.html                   // アイコンを表示するパーツ
+        news_list_summary.html      // ニュース記事を新着5件表示するパーツ
     index.html                      // ホームページテンプレート トップページそのもの
     section/                        // セクションテンプレートはこの中にセクション名のhtmlファイルを作成する
         about.html                  // aboutセクションのセクションテンプレート
