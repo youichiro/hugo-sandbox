@@ -192,9 +192,9 @@ title = "hugo-sandbox"
 
 ## メディアクエリを適用する
 
-`assets/scss/config/_mixin.scss`にメディアクエリを簡単に利用するためのmixinを用意しました<br>
-デバイスの横幅に応じて4つのbreakpoint(sm, md, lg, xl)を定義しています<br>
-例えばmdサイズ以下のときにスタイルを適用したい場合は以下のように書きます
+`assets/scss/config/_mixin.scss`にメディアクエリを簡単に利用するためのmixinを用意した<br>
+デバイスの横幅に応じて4つのbreakpoint(sm, md, lg, xl)を定義している<br>
+例えばmdサイズ以下のときにスタイルを適用したい場合は以下のように書く
 
 ```scss
 html {
@@ -209,8 +209,8 @@ html {
 
 ## 最新のコンテンツ一覧を表示する
 
-`.Site.RegularPages`でサイト内の全てのシングルページを取得することができます<br>
-次のコードはシングルページを作成日順に新着5件表示するものです
+`.Site.RegularPages`でサイト内の全てのシングルページを取得することができる<br>
+次のコードはシングルページを作成日順に新着5件表示している
 
 ```html
 <ul>
