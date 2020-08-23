@@ -198,6 +198,8 @@ title = "hugo-sandbox"
 
 ```scss
 html {
+  font-size: 100%;
+
   @include mq-down(md) {
     font-size: 80%;
   }
