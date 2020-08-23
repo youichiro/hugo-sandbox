@@ -197,3 +197,4 @@ title = "hugo-sandbox"
 ## Hugo参考サイト
 
 - [まくまくHugo/Goノート](https://maku77.github.io/hugo/)
+- [Yuuniworks Notes](https://note.yuuniworks.com/study/hugo.html)
