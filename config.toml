@@ -7,3 +7,19 @@ title = "hugo-sandbox"
 
 [params]
   GithubPage = "https://github.com/youichiro/hugo-sandbox"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    name = "About"
+    url = "/about"
+    weight = 2
+
+  [[menu.main]]
+    name = "News"
+    url = "/news"
+    weight = 3

@@ -130,22 +130,40 @@ Aboutページを新たに作成したい場合
   - このsrcのパスはpublic内でのパスを指定している
 
 
-## セクションページ一覧を表示する
+## メニューを表示する
 
-ヘッダーにメニューとしてセクションページを一覧表示するような場合、セクションページを自動で取得できる
+`config.toml`にメニューとして表示したいページの情報を記述する<br>
+weightで並べる順番を指定している
+
+```toml
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    name = "About"
+    url = "/about"
+    weight = 2
+
+  [[menu.main]]
+    name = "News"
+    url = "/news"
+    weight = 3
+```
+
+`.Site.Menus.main`で参照してメニューを作ることができる
 
 ```
 <ul>
-  {{ range .Site.Sections }}
+  {{ range .Site.Menus.main }}
     <li>
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <a href="{{ .URL }}">{{ .Name }}</a>
     </li>
   {{ end }}
 </ul>
 ```
-
-セクションページのmdファイルの`weight`で並べる順番を指定することができる [参考](https://gohugo.io/templates/lists/#order-content)
-
 
 ## 変数を定義する
 
