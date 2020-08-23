@@ -190,6 +190,21 @@ title = "hugo-sandbox"
 <a href="{{ .Site.Params.GithubPage }}">source code</p>
 ```
 
+## メディアクエリを適用する
+
+`assets/scss/config/_mixin.scss`にメディアクエリを簡単に利用するためのmixinを用意しました<br>
+デバイスの横幅に応じて4つのbreakpoint(sm, md, lg, xl)を定義しています<br>
+例えばmdサイズ以下の場合にスタイルを適用したい場合は以下のように書きます
+
+```scss
+html {
+  @include mq-down(md) {
+    font-size: 80%;
+  }
+}
+```
+
+
 ## ビルドする
 
 - `hugo`コマンドを実行すると、`public`ディレクトリにサイト表示に必要なファイルを出力する
