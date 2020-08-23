@@ -2,5 +2,8 @@ baseURL = "http://localhost:1313"
 languageCode = "ja"
 title = "hugo-sandbox"
 
+[markup.goldmark.renderer]
+  unsafe = true
+
 [params]
-  Twitter = "@cinnamon_416"
+  GithubPage = "https://github.com/youichiro/hugo-sandbox"

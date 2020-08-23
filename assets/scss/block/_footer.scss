@@ -1,3 +1,13 @@
+footer {
+  margin-top: auto;
+}
+
 #footer {
   border-top: solid 1px $border;
+
+  .content {
+    margin: 16px 0;
+    line-height: 32px;
+    text-align: center;
+  }
 }

@@ -1,0 +1,14 @@
+// ニュース一覧ページのスタイルシート
+
+#news_list {
+  .content {
+    margin: 32px 0;
+  }
+  ul {
+    list-style-type: circle;
+    margin-left: 32px;
+  }
+  ul > li {
+    line-height: 2.4;
+  }
+}

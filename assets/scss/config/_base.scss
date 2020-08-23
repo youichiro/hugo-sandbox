@@ -1,16 +1,28 @@
 // 全体に適用されるスタイルを書く
 
 html {
-  @include mq-down(md) {
-    font-size: 50%;
-  }
-}
+  font-size: 100%;
 
-body {
-  padding: 2rem;
+  @include mq-down(md) {
+    font-size: 150%;
+  }
+
   font-family: sans-serif;
 }
 
+body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 32px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 a {
-  text-decoration: none;
+  color: $link;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

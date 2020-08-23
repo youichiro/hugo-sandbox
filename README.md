@@ -99,13 +99,13 @@ languageCode = "ja"
 title = "hugo-sandbox"
 
 [params]
-  Twitter = "@cinnamon_416"
+  GithubPage = "https://github.com/youichiro/hugo-sandbox"
 ```
 
 変数の参照：
 
 ```html
-<p>{{ .Site.Params.Twitter }}</p>
+<p>{{ .Site.Params.GithubPage }}</p>
 ```
 
 ## ビルドする

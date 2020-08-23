@@ -1,11 +1,10 @@
 {{ define "main" }}
 
 <div id="about">
-  <h1 class="metal-text">about page</h1>
-  <p>あばうとぺーじです</p>
-  {{- partial "icon" }}
-  <a href="/">index</a>
-  <p>Twitter: {{ .Site.Params.Twitter }}</p>
+  <h1>{{ .Title }}</h1>
+  <div class="content">
+    {{ .Content }}
+  </div>
 </div>
 
 {{ end }}
