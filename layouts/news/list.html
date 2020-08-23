@@ -6,7 +6,7 @@
     {{ .Content }}
   </div>
   <ul>
-    {{ range .RegularPages }}
+    {{ range .Pages }}
     <li>
       <a href="{{ .RelPermalink }}">
         {{ .Title }} <time>({{ .Date.Format "2006-01-02" }})</time>
