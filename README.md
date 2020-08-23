@@ -84,8 +84,7 @@ config.toml                   // サイトの全般的な設定, .Site変数で�
 
 ## リンクを書く
 
-- `<a href="{{ .Site.BaseURL }}/about">about</a>`でAboutページへのリンクになる
-- `.Site`で`config.toml`に定義された変数を参照することができ、`.Site.BaseURL`でその値を取得している
+- `<a href="/about">about</a>`でAboutページへのリンクになる
 
 
 ## 変数を定義する
