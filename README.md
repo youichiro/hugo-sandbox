@@ -224,3 +224,4 @@ html {
 ## TODO
 
 - [ ] FontAwesomeを使う
+- [ ] OGPの設定
