@@ -207,6 +207,22 @@ html {
 ```
 
 
+## 最新のコンテンツ一覧を表示する
+
+`.Site.RegularPages`でサイト内の全てのシングルページを取得することができます<br>
+次のコードはシングルページを作成日順に新着5件表示するものです
+
+```html
+<ul>
+  {{ range first 5 .Site.RegularPages.ByDate.Reverse }}
+  <li>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </li>
+  {{ end }}
+</ul>
+```
+
+
 ## ビルドする
 
 - `hugo`コマンドを実行すると、`public`ディレクトリにサイト表示に必要なファイルを出力する
