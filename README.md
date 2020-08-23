@@ -194,7 +194,7 @@ title = "hugo-sandbox"
 
 `assets/scss/config/_mixin.scss`にメディアクエリを簡単に利用するためのmixinを用意しました<br>
 デバイスの横幅に応じて4つのbreakpoint(sm, md, lg, xl)を定義しています<br>
-例えばmdサイズ以下の場合にスタイルを適用したい場合は以下のように書きます
+例えばmdサイズ以下のときにスタイルを適用したい場合は以下のように書きます
 
 ```scss
 html {
