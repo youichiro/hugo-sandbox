@@ -5,7 +5,7 @@ html {
   font-size: 100%;
 
   @include mq-down(md) {
-    font-size: 50%;
+    font-size: 80%;
   }
 }
 
